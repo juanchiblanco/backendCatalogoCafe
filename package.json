@@ -1,0 +1,13 @@
+{
+  "name": "backendcatalogocafe",
+  "version": "1.0.0",
+  "description": "Backend de catalogo de productos de una cafeteria",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Blanco Juan Manuel",
+  "license": "MIT",
+  "type": "module"
+}
