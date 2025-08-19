@@ -52,3 +52,18 @@ export const leerProductoPorId = async (req, res) => {
     res.status(500).json({ mensaje: "Error al obtener el producto" });
   }
 };
+
+export const borrarProducto = async (req,res) => {
+  try {
+    //buscar prodcuto por id
+    const productoBorrado = await Producto.findByIdAndDelete(req.params.id);
+    if (!productoBorrado) {
+      return res.status(404).json({ mensaje: "No se encontro el producto y no pudimos borrarlo" });
+    }
+    //responder al front
+    res.status(200).json({mensaje: 'Producto eliminado exitosamente'});
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ mensaje: "Error al borrar el producto" });
+  }
+}
