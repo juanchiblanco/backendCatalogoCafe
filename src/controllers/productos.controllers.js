@@ -34,3 +34,21 @@ export const crearProducto = async (req, res) => {
 };
 
 //agregar funciones para CRUD
+
+export const leerProductoPorId = async (req, res) => {
+  try {
+    //obtener parametro del request
+    console.log(req.params);
+    console.log(req.params.id);
+    //pedir a mongoose que lo encuentre
+    const productoBuscado = await Producto.findById(req.params.id);
+    if (!productoBuscado) {
+      return res.status(404).json({ mensaje: "Producto no encontrado" });
+    }
+    //contestar al front
+    res.status(200).json(productoBuscado);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ mensaje: "Error al obtener el producto" });
+  }
+};
